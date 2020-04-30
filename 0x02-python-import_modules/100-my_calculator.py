@@ -11,8 +11,8 @@ if __name__ == "__main__":
     a = int(sys.argv[1])
     b = int(sys.argv[3])
     op = sys.argv[2]
-    
-    if op == '+':
+
+    if op == '+' :
         print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
     elif op == "-":
         print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
@@ -22,3 +22,4 @@ if __name__ == "__main__":
         print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
