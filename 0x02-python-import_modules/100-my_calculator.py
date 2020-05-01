@@ -12,12 +12,16 @@ if __name__ == "__main__":
     op = sys.argv[2]
     if op == '+' :
         print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
+        exit(0)
     elif op == "-":
         print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
+        exit(0)
     elif op == "*":
         print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
+        exit(0)
     elif op == "/":
         print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
+        exit(0)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
