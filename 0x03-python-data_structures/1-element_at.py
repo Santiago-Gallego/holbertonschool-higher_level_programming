@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-def element_at(this_list, idx):
-    if this_list == []:
+def element_at(my_list, idx):
+    if my_list == []:
         return None
     if idx < 0:
         return None
-    if idx >= len(this_list):
+    if idx >= len(my_list):
         return None
     else:
-        return this_list[idx]
+        return my_list[idx]
