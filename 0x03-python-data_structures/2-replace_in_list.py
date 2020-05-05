@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-def replace_in_list(list, idx, element):
-    if list == []:
-        return list
+def replace_in_list(my_list, idx, element):
+    if my_list == []:
+        return my_list
     if idx < 0:
-        return list
-    if idx >= len(list):
-        return list
+        return my_list
+    if idx >= len(my_list):
+        return my_list
     else:
-        list[idx] = element
-        return list
+        my_list[idx] = element
+        return my_list
