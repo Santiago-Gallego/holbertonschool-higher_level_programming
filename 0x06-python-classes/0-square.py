@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Class Square: Creates a square class """
+""" Create a square """
 class Square:
-    """ Makes an Empty Square Class """
+    """ empyt class """
     pass
