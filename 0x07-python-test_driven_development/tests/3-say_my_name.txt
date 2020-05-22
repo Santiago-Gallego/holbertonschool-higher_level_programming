@@ -1,0 +1,36 @@
+""say_my_name"" module
+======================
+
+Using ""matrix_divided""
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("Santiago", "Castillo")
+My name is Santiago Castillo
+
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Billie", 7)
+Traceback (most recent call last):
+  ...
+TypeError: last_name must be a string
+
+>>> say_my_name(["Hola", 2], 13)
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+>>> say_my_name()
+Traceback (most recent call last):
+  ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+>>> say_my_name("Hola")
+My name is Hola 
+
+>>> a = "Maria"
+>>> say_my_name(a,"Segura")
+My name is Maria Segura
