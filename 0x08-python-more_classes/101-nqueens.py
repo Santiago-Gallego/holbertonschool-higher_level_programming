@@ -9,7 +9,11 @@ class nQueens:
         self.n = n
 
     def play(self, n):
+<<<<<<< HEAD
         """ play game """
+=======
+        """ play """
+>>>>>>> 7eabb774d9be243490201e07792a53a1a1745853
         chess_board = [[0 for i in range(n)] for y in range(n)]
         for i in range(n):
             self.solve(chess_board, i)
@@ -31,7 +35,11 @@ class nQueens:
             cb[row][col] = 0
 
     def matrix_to_list(self, cb):
+<<<<<<< HEAD
         """ changes a matrix """
+=======
+        """ changes matrix to list """
+>>>>>>> 7eabb774d9be243490201e07792a53a1a1745853
         queen_list = []
         for i in range(len(cb)):
             for j in range(len(cb)):
@@ -50,7 +58,11 @@ class nQueens:
             return True
 
     def safety_check(self, cb, row, col):
+<<<<<<< HEAD
         """ if there are queens """
+=======
+        """ there are queens """
+>>>>>>> 7eabb774d9be243490201e07792a53a1a1745853
         count_a = 0
         count_b = 0
         for i in cb[row]:
