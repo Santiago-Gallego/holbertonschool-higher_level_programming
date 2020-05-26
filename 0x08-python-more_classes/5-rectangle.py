@@ -55,9 +55,9 @@ class Rectangle:
             return stri
         for y in range(self.__height):
             for x in range(self.__width):
-                stri  += "#"
-            stri   += "\n"
-        stri   = stri  [:-1]
+                stri += "#"
+            stri += "\n"
+        stri = stri[:-1]
         return stri
 
     def __repr__(self):
