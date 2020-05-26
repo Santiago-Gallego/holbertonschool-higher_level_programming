@@ -1,23 +1,21 @@
 #!/usr/bin/python3
-"""
-N Queens
-"""
+"""N Queens"""
 
 
 class nQueens:
 
     def __init__(self, n):
-        """ sets the n variable """
+        """ set the n variable """
         self.n = n
 
     def play(self, n):
-        """ play the game! """
+        """ play """
         chess_board = [[0 for i in range(n)] for y in range(n)]
         for i in range(n):
             self.solve(chess_board, i)
 
     def solve(self, cb, col):
-        """ recursive solve """
+        """ recursive """
         for row in range(self.n):
             if col >= self.n:
                 if self.check_num_queens(cb):
@@ -33,7 +31,7 @@ class nQueens:
             cb[row][col] = 0
 
     def matrix_to_list(self, cb):
-        """ changes a matrix to a list """
+        """ changes matrix to list """
         queen_list = []
         for i in range(len(cb)):
             for j in range(len(cb)):
@@ -42,7 +40,7 @@ class nQueens:
         print(queen_list)
 
     def check_num_queens(self, cb):
-        """ checks the number of queens"""
+        """ number of queens"""
         count = 0
         for i in range(len(cb)):
             for j in range(len(cb)):
@@ -52,7 +50,7 @@ class nQueens:
             return True
 
     def safety_check(self, cb, row, col):
-        """ checks if there are queens """
+        """ there are queens """
         count_a = 0
         count_b = 0
         for i in cb[row]:
