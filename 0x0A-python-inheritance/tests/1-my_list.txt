@@ -1,4 +1,3 @@
-#doctest-1-my_list.py
 """ Test Driven Development """
 
 Importing the class from the module:
