@@ -1,0 +1,77 @@
+""" Test Driven Development """
+
+Importing class from module:
+	      >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> figure = BaseGeometry()
+>>> figure.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+>>> figure.area(30)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 2 were given
+
+>>> figure.integer_validator("MyInt", 1010)
+
+>>> figure.integer_validator("number", -123)
+Traceback (most recent call last):
+...
+ValueError: number must be greater than 0
+
+>>> figure.integer_validator("num", 0)
+Traceback (most recent call last):
+...
+ValueError: num must be greater than 0
+
+>>> figure.integer_validator("my_dict", {"name": "andres"})
+Traceback (most recent call last):
+...
+TypeError: my_dict must be an integer
+
+>>> figure.integer_validator("my_list", [21, 23, 25])
+Traceback (most recent call last):
+...
+TypeError: my_list must be an integer
+
+>>> figure.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> figure.integer_validator("num")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> figure.integer_validator("num", 12, 124, 42, 24)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() takes 3 positional arguments but 6 were given
+
+>>> figure.integer_validator("bytes", b"bytes")
+Traceback (most recent call last):
+...
+TypeError: bytes must be an integer
+
+>>> figure.integer_validator("string", "hello")
+Traceback (most recent call last):
+...
+TypeError: string must be an integer
+
+>>> figure.integer_validator("bool", True)
+Traceback (most recent call last):
+...
+TypeError: bool must be an integer
+
+>>> figure.integer_validator("complex", complex(1, 1))
+Traceback (most recent call last):
+...
+TypeError: complex must be an integer
+
+>>> figure.integer_validator("tuple", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: tuple must be an integer
