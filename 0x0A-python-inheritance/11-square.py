@@ -15,6 +15,7 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
 
+
 """ class rectangle """
 
 
@@ -33,6 +34,7 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """ representation string """
         return "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
+
 
 """ class square """
 
