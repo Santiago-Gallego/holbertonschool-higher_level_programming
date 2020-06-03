@@ -74,3 +74,13 @@ TypeError: complex must be an integer
 Traceback (most recent call last):
 ...
 TypeError: tuple must be an integer
+
+>>> figure.integer_validator("age", {3,4})
+Traceback (most recent call last):
+...
+TypeError: tuple must be an integer
+
+>>> figure.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: tuple must be an integer
