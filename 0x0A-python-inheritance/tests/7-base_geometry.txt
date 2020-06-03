@@ -78,9 +78,9 @@ TypeError: tuple must be an integer
 >>> figure.integer_validator("age", {3,4})
 Traceback (most recent call last):
 ...
-TypeError: tuple must be an integer
+TypeError: age must be an integer
 
 >>> figure.integer_validator("age", None)
 Traceback (most recent call last):
 ...
-TypeError: tuple must be an integer
+TypeError: age must be an integer
