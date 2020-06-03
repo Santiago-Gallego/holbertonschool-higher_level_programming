@@ -1,6 +1,6 @@
 """ Test Driven Development """
 
-Importing the class from the module:
+Import class from the module:
 	    >>> MyList = __import__('1-my_list').MyList
 
 >>> issubclass(MyList, list)
