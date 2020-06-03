@@ -10,4 +10,3 @@ try:
     save_json_file(li + argv[1:], 'add_item.json')
 except Exception:
     save_json_file(argv[1:], 'add_item.json')
-    
