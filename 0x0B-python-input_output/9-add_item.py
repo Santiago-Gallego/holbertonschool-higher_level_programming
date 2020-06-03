@@ -2,10 +2,12 @@
 """ Load, Add, Save """
 import sys
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+load_json = __import__('8-load_from_json_file').load_from_json_file
 
 try:
-    itemJs = load_from_json_file('add_item.json')
-    save_to_json_file(itemJs + argv[1:], 'add_item.json')
+    list1 = load_json("add_item.json")
 except:
-    save_to_json_file(argv[1:], 'add_item.json')
+    list1 = []
+for i in range(1, len(sys.argv)):
+    list1.append(sys.argv[i])
+save_to_json_file(list1, "add_item.json")
