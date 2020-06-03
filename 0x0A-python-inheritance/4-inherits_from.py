@@ -3,6 +3,7 @@
 
 
 def inherits_from(obj, a_class):
+    """ Return True or false """
     if(type(obj) == a_class):
         return False
     return isinstance(obj, a_class)
