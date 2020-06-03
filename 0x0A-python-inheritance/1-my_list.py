@@ -1,10 +1,13 @@
-#!/urs/bin/python3
-""" class myList """
+#!/usr/bin/python3
+"""
+MyList - subclass of list
+"""
 
 
 class MyList(list):
-    """ method print sort list """
+    """ public method: print sorted list """
     def print_sorted(self):
-        List = self[:]
-        sorted(List)
-        print(List)
+        """ sorts list and then print """
+        new_list = self[:]
+        new_list.sort()
+        print(new_list)
