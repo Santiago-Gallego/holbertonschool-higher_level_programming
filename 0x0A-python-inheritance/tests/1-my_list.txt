@@ -10,14 +10,14 @@ True
 >>> list.print_sorted()
 []
 
->>> list.append(18)
->>> list.append(14)
->>> list.append(16)
+>>> list.append(8)
+>>> list.append(4)
+>>> list.append(6)
 >>> print(list)
-[18, 14, 16]
+[8, 4, 6]
 
 >>> list.print_sorted()
-[14, 16, 18]
+[4, 6, 8]
 
 >>> list.append(-12)
 >>> list.append(-1)
