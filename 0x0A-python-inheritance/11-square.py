@@ -19,10 +19,9 @@ class BaseGeometry:
 """ class rectangle """
 
 
-
 class Rectangle(BaseGeometry):
     """ rectangle class """
-    def __init__(self,width, height):
+    def __init__(self, width, height):
         self.__width = width
         self.__height = height
         BaseGeometry.integer_validator(self, "width", self.__width)
@@ -41,14 +40,13 @@ class Rectangle(BaseGeometry):
 
 class Square(Rectangle):
     """ square class """
-    def __init__(self,size):
+    def __init__(self, size):
         self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
     def area(self):
         return self.__size ** 2
-
 
     def __str__(self):
         """ repesentation string """
