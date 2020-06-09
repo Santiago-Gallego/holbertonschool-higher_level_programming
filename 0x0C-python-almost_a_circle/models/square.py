@@ -14,9 +14,10 @@ def validate_integers(n, v):
     if (n == list_[2] or n == list_[3]) and v < 0:
         raise ValueError("{} must be >= 0".format(n))
 
+
 class Square(Rectangle):
     """ The class Saquare """
-    
+
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
@@ -36,12 +37,8 @@ class Square(Rectangle):
     def __str__(self):
         """ String representation """
         return ('[Square] ({}) {}/{} - {}'.format(self.id,
-            self.x, self.y, self.width))
+                self.x, self.y, self.width))
 
-    """
-    Function overwrite attribute values
-    to each attribute
-    """
     def update(self, *args, **kwargs):
         """ assign the positions to the list """
         if args:

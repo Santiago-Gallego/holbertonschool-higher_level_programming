@@ -1,113 +1,99 @@
 #!/usr/bin/python3
 """ Test is for the base class """
+
+
 import unittest
-from models.base import Base as B
-from models.rectangle import Rectangle as R
-from models.square import Square as S
+import json
+import pep8
+from models import base
+Base = base.Base
 
 
-class test_Base_class(unittest.TestCase):
-    """ Tests base class """
+class TestDocs(unittest.TestCase):
+    """ Test for check all the documentation """
+    def testDocString(self):
+        """Tests for the module docstring"""
+        self.assertTrue(len(base.__doc__) >= 1)
 
-    def test_id_input(self):
-        """ Test of the id argument"""
-        B._Base__nb_objects = 0
+    def test_ClassDocstring(self):
+        """Tests for the Base class docstring"""
+        self.assertTrue(len(Base.__doc__) >= 1)
 
-        b1 = B()
-        self.assertEqual(b1.id, 1)
+    def test_pep8_Test_base(self):
+        """Test that tests/test_models/test_base.py conforms to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
 
-        b2 = B(17)
-        self.assertEqual(b2.id, 17)
 
-        b3 = B(-17)
-        self.assertEqual(b3.id, -17)
+class TestBase(unittest.TestCase):
+    """ Class for the test of the class base """
+    def test_moreArguments(self):
+        """ When its passes more arguments
+        than the required """
+        with self.assertRaises(TypeError):
+            base = Base(1, 1)
 
-    def test_id_plusplus(self):
-        """ Test increase id argument """
-        B._Base__nb_objects = 0
+    def test_whenNoIdPassed(self):
+        """ When there is no Id passed """
+        base = Base()
+        self.assertEqual(base.id, 1)
 
-        b4 = B()
-        self.assertEqual(b4.id, 1)
+    def test_whenIdIsPassed(self):
+        """ When there is Id passed """
+        base = Base(74)
+        self.assertEqual(base.id, 74)
 
-        b5 = B()
-        self.assertEqual(b5.id, 2)
+    def test_theNbPrivate(self):
+        """ Test if __nb_objects is private """
+        base = Base(56)
+        with self.assertRaises(AttributeError):
+            print(base.nb_objects)
+        with self.assertRaises(AttributeError):
+            print(base.__nb_objects)
 
-        b6 = B()
-        self.assertEqual(b6.id, 3)
+    def test_ToJsonStringIsEmpty(self):
+        """ Test when is passed an empty list
+        or Nothing """
+        json_str = Base.to_json_string([])
+        self.assertTrue(type(json_str) is str)
+        self.assertEqual(json_str, "[]")
 
-        b7 = B(5)
-        b8 = B()
-        self.assertEqual(b8.id, 4)
+    def test_ToJsonString(self):
+        """ Test if works well the method """
+        Base._Base__nb_objects = 0
+        ob1 = {"id": 12, "width": 4, "height": 3, "x": 8, "y": 12}
+        ob2 = {"id": 14, "width": 6, "height": 2, "x": 4, "y": 3}
+        json_str = Base.to_json_string([ob1, ob2])
+        self.assertTrue(type(json_str) is str)
+        ob = json.loads(json_str)
+        self.assertEqual(ob, [ob1, ob2])
 
-        b9 = B()
-        self.assertEqual(b9.id, 5)
+    def test_NoneToJsonString(self):
+        """ Test when None is passed """
+        json_str = Base.to_json_string(None)
+        self.assertTrue(type(json_str) is str)
+        self.assertEqual(json_str, "[]")
 
-    def test_to_json_string(self):
-        """ Test json string representation """
-        r1 = R(10, 7, 2, 8)
-        dictionary = r1.to_dictionary()
-        json_dictionary = B.to_json_string([dictionary])
-        self.assertCountEqual(
-            dictionary, {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8})
-        self.assertEqual(type(dictionary), dict)
-        self.assertEqual(type(json_dictionary), str)
+    def test_FromJsonString(self):
+        """ Test if work well the method """
+        json_str = '[{"id": 12, "width": 4, "height": 3, "x": 8, "y": 12}, \
+{"id": 14, "width": 6, "height": 2, "x": 4, "y": 3}]'
+        json_list = Base.from_json_string(json_str)
+        self.assertTrue(type(json_list) is list)
+        self.assertEqual(len(json_list), 2)
+        self.assertTrue(type(json_list[0]) is dict)
+        self.assertTrue(type(json_list[1]) is dict)
+        self.assertEqual(json_list[0], {"id": 12, "width": 4, "height": 3,
+                                        "x": 8, "y": 12})
+        self.assertEqual(json_list[1], {"id": 14, "width": 6, "height": 2,
+                                        "x": 4, "y": 3})
 
-    def test_save_to_file(self):
-        """ Test if save a obj as json string in file .json """
-        r1 = R(10, 7, 2, 8)
-        r2 = R(2, 4)
-        R.save_to_file([r1, r2])
+    def test_FromJsonStringNone(self):
+        """ Test the method with an empty string """
+        self.assertEqual([], Base.from_json_string(None))
 
-        with open("Rectangle.json", "r") as file:
-            txt = file.read()
-
-    def test_create(self):
-        """ Test if return a instance with all attributes """
-        d1 = {'id': 10, 'size': 6, 'x': 17, 'y': 17}
-        s1 = S.create(**d1)
-        self.assertEqual(s1.to_dictionary(), d1)
-        self.assertEqual(B._Base__nb_objects, 1)
-
-        d2 = {'id': 5, 'width': 3, 'height': 7, 'x': 2, 'y': 1}
-        r1 = R.create(**d2)
-        self.assertEqual(r1.to_dictionary(), d2)
-        self.assertEqual(B._Base__nb_objects, 2)
-
-        r3 = R(6, 3)
-        d3 = r3.to_dictionary()
-        r4 = R.create(**d3)
-        self.assertEqual(r4.to_dictionary(), d3)
-        self.assertEqual(B._Base__nb_objects, 4)
-
-        s2 = S(5)
-        d4 = s2.to_dictionary()
-        s5 = S.create(**d4)
-        self.assertEqual(s5.to_dictionary(), d4)
-        self.assertEqual(B._Base__nb_objects, 6)
-
-    def test_load_from_file(self):
-        """ Test id return list of instances """
-        r5 = R(6, 3)
-        d5 = r5.to_dictionary()
-        R.save_to_file([r5])
-        l_o = R.load_from_file()
-        self.assertIsInstance(l_o[0], R)
-        self.assertDictEqual(l_o[0].to_dictionary(), d5)
-
-        s6 = S(6)
-        d6 = s6.to_dictionary()
-        S.save_to_file([s6])
-        l_o2 = S.load_from_file()
-        self.assertIsInstance(l_o2[0], S)
-        self.assertDictEqual(l_o2[0].to_dictionary(), d6)
-
-        R.save_to_file([r5, r5, r5])
-        l_o3 = R.load_from_file()
-        S.save_to_file([s6, s6, s6])
-        l_o4 = S.load_from_file()
-
-        self.assertIsInstance(l_o3[1], R)
-        self.assertDictEqual(l_o3[1].to_dictionary(), d5)
-
-        self.assertIsInstance(l_o4[2], R)
-        self.assertDictEqual(l_o4[2].to_dictionary(), d6)
+    def test_FromJsonStringEmpty(self):
+        """ Test the method with an empty string """
+        self.assertEqual([], Base.from_json_string(""))

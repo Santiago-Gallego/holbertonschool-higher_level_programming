@@ -123,4 +123,4 @@ class Rectangle(Base):
                 if key.startswith('_'):
                     new_key = key[12:]
                 new_dicc[new_key] = dicc[key]
-            return new_dicc            
+            return new_dicc
