@@ -58,7 +58,6 @@ This project is a review of everything learned in Python up until 09/13/17:
 * Update the class Base by adding the static method def from_json_string(json_string): that returns the list of the JSON string representation json_string:
 ### 18. Dictionary to Instance
 * Update the class Base by adding the class method def create(cls, **dictionary): that returns an instance with all attributes already set
-##
 ## Author
 * **Santiago Gallego** - [Santiago-Gallego](https://github.com/Santiago-Gallego)
 
