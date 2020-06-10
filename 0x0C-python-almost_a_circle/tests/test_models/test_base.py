@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Test is for the base class """
+"""
+All the tests for the Base class
+"""
 
 
 import unittest
