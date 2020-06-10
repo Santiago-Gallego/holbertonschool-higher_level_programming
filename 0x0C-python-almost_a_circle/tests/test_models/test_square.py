@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" Test is for the square class """
+"""
+All the test cases for the class square
+"""
+
+
 import unittest
 import json
 import pep8
@@ -38,7 +42,6 @@ class TestDocs(unittest.TestCase):
         """Tests for the presence of docstrings in all functions"""
         for func in self.sq_funcs:
             self.assertTrue(len(func[1].__doc__) >= 1)
-
 
 class SquareTests(unittest.TestCase):
     """Test the functionality of the Square class"""
@@ -163,6 +166,7 @@ class SquareTests(unittest.TestCase):
         s.update()
         self.assertEqual(str(s), "[Square] (1) 0/0 - 1")
 
+
     def test_update_kwargs(self):
         """Testing the update method with **kwargs"""
         s = Square(1, 0, 0, 1)
@@ -216,16 +220,16 @@ class SquareTests(unittest.TestCase):
         """test regular use of save_to_file"""
         s1 = Square(1, 1, 1, 1)
         s2 = Square(2, 2, 2, 2)
-        li = [s1, s2]
-        Square.save_to_file(li)
+        l = [s1, s2]
+        Square.save_to_file(l)
         with open("Square.json", "r") as f:
             ls = [s1.to_dictionary(), s2.to_dictionary()]
             self.assertEqual(json.dumps(ls), f.read())
 
     def test_stf_empty(self):
         """test save_to_file with empty list"""
-        li1 = []
-        Square.save_to_file(li1)
+        l = []
+        Square.save_to_file(l)
         with open("Square.json", "r") as f:
             self.assertEqual("[]", f.read())
 
