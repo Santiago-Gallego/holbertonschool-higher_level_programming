@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Test is for the Rectangle class """
+"""
+All the test cases for the rectangle class
+"""
 
 
 import io
@@ -22,7 +24,6 @@ class rectangleDocumentation(unittest.TestCase):
     def testClassDocstring(self):
         """Tests for the presence of a class docstring"""
         self.assertTrue(len(Rectangle.__doc__) >= 1)
-
 
 class TestRectangles(unittest.TestCase):
     """Test the functionality of the Rectangle class"""
@@ -190,16 +191,16 @@ class TestRectangles(unittest.TestCase):
         """test regular use of save_to_file"""
         r1 = Rectangle(1, 3, 2, 4, 1)
         r2 = Rectangle(2, 2, 2, 2, 2)
-        li = [r1, r2]
-        Rectangle.save_to_file(li)
+        l = [r1, r2]
+        Rectangle.save_to_file(l)
         with open("Rectangle.json", "r") as f:
             ls = [r1.to_dictionary(), r2.to_dictionary()]
             self.assertEqual(json.dumps(ls), f.read())
 
     def test_savetofile_empty(self):
         """test save_to_file with empty list"""
-        li1 = []
-        Rectangle.save_to_file(li1)
+        l = []
+        Rectangle.save_to_file(l)
         with open("Rectangle.json", "r") as f:
             self.assertEqual("[]", f.read())
 
