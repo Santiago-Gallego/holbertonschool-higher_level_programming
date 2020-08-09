@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" delete all states objects with a name containing
+"""deletes all State objects with a name containing
 the letter """
 
 if __name__ == "__main__":

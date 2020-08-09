@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" print all cities objects """
+""" prints all City objects """
 
 if __name__ == "__main__":
 

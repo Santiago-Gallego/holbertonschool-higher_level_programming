@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" changes the name of a state object """
+""" changes the name of a State object from """
 
 if __name__ == "__main__":
 
