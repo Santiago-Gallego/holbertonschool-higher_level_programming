@@ -1,4 +1,4 @@
-In these projects, we cover everything from the basics of Python and Javascript (Node), as well as SQL (with MySQL) to more advanced topics.
+In these projects, we cover everything from the basics of Python, as well as SQL (with MySQL) to more advanced topics.
 ## Table of contents
 Directories | Description
 ----------- | -----------
