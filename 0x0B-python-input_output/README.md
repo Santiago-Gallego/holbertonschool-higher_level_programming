@@ -19,4 +19,3 @@ Files | Description
 [12-student.py](./12-student.py) | Python class Student (based on 11-student.py)
 [13-student.py](./13-student.py) | Python class Student (based on 12-student.py)
 [14-pascal_triangle.py](./14-pascal_triangle.py) | Python function def pascal_triangle(n): that returns a list of lists of integers representing the Pascal’s triangle of n
-[100-append_after.py](./100-append_after.py) | Python function that inserts a line of text to a file, after each line containing a specific string
