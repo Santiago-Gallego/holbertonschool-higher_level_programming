@@ -15,6 +15,4 @@ Files | Description
 [9-starwars.py](./9-starwars.py) | Python script that takes in a string and sends a search request to the Star Wars API
 [10-my_github.py](./10-my_github.py) | Python script that takes your Github credentials (username and password) and uses the Github API to display your id
 [100-github_commits.py](./100-github_commits.py) | Python script that takes in Github repo nd owner name to list 10 commits (from the most recent to oldest)
-[101-starwars.py'](./101-starwars.py) | Python script that takes in a string and sends a search request to the Star Wars API
-[102-starwars.py](.102-starwars.py) | Python script that takes in a string and sends a search request to the Star Wars API
 [103-search_twitter.py](.103-search_twitter.py) | Python script that takes in three strings and sends a Tweet search to the Twitter API
