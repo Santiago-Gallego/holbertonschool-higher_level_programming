@@ -20,7 +20,3 @@ Files | Description
 [14-average.sql](./14-average.sql) | sql script that computes the score average of all records in the table second_table of the database hbtn_0c_0 in your MySQL server
 [15-groups.sql](./15-groups.sql) | sql script that lists the number of records with the same score in the table second_table of the database hbtn_0c_0 in your MySQL server
 [16-no_link.sql](./16-no_link.sql) | sql script that lists all records of the table second_table of the database hbtn_0c_0 in your MySQL server
-[100-move_to_utf8.sql](./100-move_to_utf8.sql) | sql script that converts hbtn_0c_0 database to UTF8 (utf8mb4, collate utf8mb4_unicode_ci) in your MySQL server
-[101-avg_temperatures.sql](./101-avg_temperatures.sql) | sql script that displays the average temperature (Fahrenheit) by city ordered by temperature (descending)
-[102-top_city.sql](./102-top_city.sql) | sql script that displays the top 3 of cities temperature during July and August ordered by temperature (descending)
-[103-max_state.sql](./103-max_state.sql) | sql script that displays the max temperature of each state (ordered by State name)
